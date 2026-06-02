@@ -503,8 +503,28 @@
         </div>
       </details>
       <details class="reveal d1">
+        <summary>What if all 200 Guardian slots are full when I apply?</summary>
+        <div class="a">You're approved but you wait in queue. Slots open continuously: every 40 days of no credit, an inactive Guardian gets auto-booted (balance halved, role revoked) and that slot frees up for the next person in line. Mods can also boot bad-faith Guardians manually.<br><br>If the queue ever gets unhealthy (long wait, no churn), the team will introduce a rotation mechanism so approved applicants aren't stuck indefinitely. We'll figure it out when we see real numbers — for now the 40-day boot creates enough natural churn.</div>
+      </details>
+      <details class="reveal d1">
+        <summary>Why can only Guardians earn REP?</summary>
+        <div class="a">REP is meant to surface <b>real contributors</b>, not measure participation. The Guardian gate (10 approved threads + mod review) is the bar that filters out spam, low-effort posts, and bots before anyone can earn a single point.<br><br>Without that gate, anyone could grind low-effort posts for REP and dilute what the number means. The bar isn't arbitrary — it's the entire point. Earn the role, then earn REP. The number on the leaderboard becomes a real signal, not noise.</div>
+      </details>
+      <details class="reveal d1">
         <summary>How does the monthly SOMI payout work?</summary>
         <div class="a">On the <b>1st of every month at 00:30 UTC</b>, the system auto-pays the top 3 Guardians by REP earned in the last 30 days: <b>500 / 350 / 250 SOMI</b>. It's ranked by <b>earnings in the window</b>, not by total balance, so a fresh Guardian with a hot month can beat a quiet veteran. Winners sit out the next month so the spotlight rotates.<br><br>The window is a <b>rolling 30 days</b>, not a calendar month. Whether the previous month was 28, 29, 30, or 31 days makes no difference - the system always looks back exactly 30 days from the payout moment. Same rules every month, no edge cases.</div>
+      </details>
+      <details class="reveal d1">
+        <summary>How are SOMI rewards actually paid out?</summary>
+        <div class="a">Through Flippy's built-in tipping system. On the 1st of each month at 00:30 UTC, the auto-payout script identifies the top 3 winners and sends each one a SOMI tip via Flippy's tipping API — the same flow as any <code>/tip</code> command in Discord.<br><br>The tip posts in a designated channel and credits the recipient's Flippy wallet directly. <b>No manual claim, no signing, no friction.</b> Winners just see "you received X SOMI" land in the channel and in their Flippy balance.</div>
+      </details>
+      <details class="reveal d1">
+        <summary>If June's winners can't win July, what about August?</summary>
+        <div class="a">The cooldown is <b>exactly one month, not permanent</b>. June winners are blocked from July only. By August they're <b>fully eligible again</b>.<br><br>Concrete example:<br><br>
+          <b>·</b> <b>June</b> top 3: Alice, Bob, Charlie -> get SOMI<br>
+          <b>·</b> <b>July</b>: Alice/Bob/Charlie excluded -> next top 3 win (e.g. Dave, Eve, Frank)<br>
+          <b>·</b> <b>August</b>: Dave/Eve/Frank excluded, but Alice/Bob/Charlie are eligible again<br><br>
+          The point is to spread the spotlight, not permanently lock anyone out. A consistent monster contributor can win again and again, just not <b>back-to-back</b>. Over a year, the same person could realistically win 6 months of the 12.</div>
       </details>
       <details class="reveal d1">
         <summary>What happens if two people tie for a top-3 spot?</summary>
