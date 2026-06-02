@@ -184,6 +184,24 @@
   .philo .q b{color:var(--teal)}
   .philo .sig{margin-top:22px;font-size:.82rem;letter-spacing:.01em;color:var(--ink-dim)}
 
+  /* ---------- FAQ ---------- */
+  .faq{display:flex;flex-direction:column;gap:10px}
+  .faq details{background:var(--panel);border:1px solid var(--panel-edge);border-radius:14px;
+    padding:16px 22px;cursor:pointer;transition:border-color .25s}
+  .faq details:hover,.faq details[open]{border-color:var(--accent)}
+  .faq summary{font-family:'Source Code Pro',ui-monospace,monospace;font-weight:600;font-size:.98rem;
+    list-style:none;display:flex;justify-content:space-between;align-items:center;gap:14px;color:var(--ink)}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";color:var(--accent-bright);font-size:1.6rem;line-height:.6;
+    flex:none;transition:transform .25s}
+  .faq details[open] summary::after{transform:rotate(45deg)}
+  .faq .a{margin-top:14px;color:var(--ink-dim);font-size:.88rem;line-height:1.65}
+  .faq .a b{color:var(--ink)}
+  .faq .a code{background:var(--bg2);color:var(--accent-bright);padding:1px 6px;border-radius:4px;font-size:.85em}
+
+  /* ---------- META ---------- */
+  .last-updated{text-align:center;margin-top:18px;color:var(--ink-dim);font-size:.74rem;opacity:.7}
+
   footer{text-align:center;margin-top:60px;color:var(--ink-dim);font-size:.82rem;letter-spacing:.01em}
   footer a{color:var(--accent-bright);text-decoration:none;border-bottom:1px solid rgba(124,92,220,.4);
     padding-bottom:1px;transition:border-color .2s}
@@ -238,7 +256,7 @@
       <div class="arrow">▼</div>
       <div class="step reveal d3"><span class="dot">03</span>
         <h3>Apply for Guardian</h3>
-        <p>Submit the Apply quest with 2–3 highlights of your best work. <span class="gate">Locked until you clear the 10-post bar.</span></p>
+        <p>Submit the Apply quest with 2-3 highlights of your best work. <span class="gate">Locked until you clear the 10-post bar.</span></p>
       </div>
       <div class="arrow">▼</div>
       <div class="step reveal d4"><span class="dot">04</span>
@@ -298,9 +316,9 @@
     <div class="ledger">
       <div class="col earn reveal d1">
         <h3>↑ Earning</h3>
-        <div class="row"><div class="what">Contribution board<small>4-mod consensus · 1/week</small></div><span class="val pos">+3</span></div>
-        <div class="row"><div class="what">Exceptional bonus<small>mod /rep award, stacks on the +3</small></div><span class="val pos">+1–7</span></div>
-        <div class="row"><div class="what">@Somnia_Network engagement<small>per official X post · one-time</small></div><span class="val pos">+1</span></div>
+        <div class="row"><div class="what">Contribution board<small>4-mod consensus · quality &gt; quantity</small></div><span class="val pos">+3</span></div>
+        <div class="row"><div class="what">Exceptional bonus<small>mod /rep award, stacks on the +3</small></div><span class="val pos">+1-7</span></div>
+        <div class="row"><div class="what">@Somnia_Network engagement<small>per official X post, set per quest</small></div><span class="val pos">+1-10</span></div>
         <div class="row"><div class="what">Apply approval<small>once per user</small></div><span class="val pos">+1</span></div>
       </div>
       <div class="col lose reveal d2">
@@ -341,6 +359,41 @@
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section class="sec">
+    <div class="sec-head reveal"><span class="sec-num">6</span><span class="sec-title">FAQ</span><span class="sec-line"></span></div>
+    <div class="faq">
+      <details class="reveal d1">
+        <summary>What is REP and why does it matter?</summary>
+        <div class="a">REP is an <b>identity signal</b>, not a currency. You can't spend it. The number is visible proof you've contributed to Somnia consistently, and it's how the community separates real long-term contributors from noise. The harder it is to earn, the more it means to hold.</div>
+      </details>
+      <details class="reveal d1">
+        <summary>How do I become a Guardian?</summary>
+        <div class="a">1) Post in <code>#contribution-board</code> in Discord. Each post that gets <b>4 distinct mods reacting ✅</b> counts toward your tally. 2) Once you have <b>10 approved posts</b>, you can submit the Apply for Guardian quest. 3) A mod reviews your application. 4) When a slot opens (cap of 200), a mod runs <code>/rep guardian</code> and you get the role + your first REP.</div>
+      </details>
+      <details class="reveal d1">
+        <summary>How does the monthly SOMI payout work?</summary>
+        <div class="a">On the 1st of every month, the <b>top 3 Guardians by REP earned in the last 30 days</b> get SOMI: 500 / 350 / 250. It's ranked by <b>earnings in the window</b>, not by total balance, so a fresh Guardian with a hot month can beat a quiet veteran. Winners sit out the next month so the spotlight rotates.</div>
+      </details>
+      <details class="reveal d1">
+        <summary>What happens if I go inactive?</summary>
+        <div class="a">If you earn nothing on a given day, you lose <b>0.5 REP</b> to decay. If you go <b>60 days with no credit</b>, your balance is halved AND your Guardian role is revoked. You'd then need to re-apply through the normal Apply for Guardian flow. The halved balance is preserved, so coming back isn't starting from zero.</div>
+      </details>
+      <details class="reveal d1">
+        <summary>Can I lose REP through penalties?</summary>
+        <div class="a">Yes. Mods can apply two penalty types via <code>/rep penalty</code>: <b>spam</b> (-3 REP) for low-effort or repeated noise, and <b>misleading</b> (-10 REP) for false info that could harm users. Balances floor at 0 and never go negative. Harassment is handled through normal Discord moderation, not the REP system.</div>
+      </details>
+      <details class="reveal d1">
+        <summary>What is the BETA role?</summary>
+        <div class="a">A permanent badge for the 125 community members who were active before REP v2 launched. It's an "I was here first" signal. BETA holders get exclusive perks over time, like events, raffles, and drops planned just for them. The badge is permanent and never revoked.</div>
+      </details>
+      <details class="reveal d1">
+        <summary>Is there a cap on REP?</summary>
+        <div class="a">Yes, balances are capped at <b>400 REP</b>. Once you hit it, you stop accruing until decay or a penalty brings you back under. This keeps the leaderboard meaningful and prevents long-time Guardians from running away with the score forever.</div>
+      </details>
+    </div>
+  </section>
+
   <!-- PHILOSOPHY -->
   <section class="sec">
     <div class="philo reveal d1">
@@ -357,6 +410,8 @@
   <footer class="reveal d2">
     Built for the Somnia Guardian crew · gm anon
   </footer>
+
+  <div class="last-updated">Last updated: 2026-06-02</div>
 
 </div>
 </body>
