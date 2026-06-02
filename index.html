@@ -11,7 +11,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     /* Somnia brand: pure black/white with #462AB3 as single accent. */
@@ -38,7 +38,7 @@
   body{
     background:var(--bg);
     color:var(--ink);
-    font-family:'Codex Pro','JetBrains Mono','IBM Plex Mono',ui-monospace,monospace;
+    font-family:'Source Code Pro',ui-monospace,monospace;
     line-height:1.55;
     overflow-x:hidden;
     -webkit-font-smoothing:antialiased;
@@ -62,21 +62,21 @@
     margin-bottom:28px;opacity:.92;transition:opacity .2s}
   .brand:hover{opacity:1}
   .brand img{height:34px;width:auto;display:block}
-  .brand span{font-family:'Codex Pro','JetBrains Mono','IBM Plex Mono',ui-monospace,monospace;
+  .brand span{font-family:'Source Code Pro',ui-monospace,monospace;
     font-size:1.1rem;font-weight:500;letter-spacing:.04em}
   .kicker{
-    font-family:'Codex Pro','JetBrains Mono','IBM Plex Mono',ui-monospace,monospace;font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;
-    color:var(--teal);display:inline-block;padding:6px 16px;border:1px solid var(--panel-edge);
-    border-radius:999px;background:rgba(61,245,197,.05);margin-bottom:26px;
+    font-family:'Source Code Pro',ui-monospace,monospace;font-size:.78rem;letter-spacing:.02em;
+    color:var(--accent-bright);display:inline-block;padding:6px 16px;border:1px solid var(--panel-edge);
+    border-radius:999px;background:rgba(70,42,179,.08);margin-bottom:26px;
   }
   h1{
-    font-family:'Codex Pro','JetBrains Mono','IBM Plex Mono',ui-monospace,monospace;font-weight:700;line-height:.98;letter-spacing:-.01em;
+    font-family:'Source Code Pro',ui-monospace,monospace;font-weight:700;line-height:.98;letter-spacing:-.01em;
     font-size:clamp(2.6rem,8vw,5.4rem);
     background:linear-gradient(180deg,#fff 0%,var(--accent-bright) 130%);
     -webkit-background-clip:text;background-clip:text;color:transparent;
     text-shadow:0 0 60px rgba(70,42,179,.28);
   }
-  h1 .v{display:block;font-size:.32em;letter-spacing:.5em;color:var(--ink-dim);
+  h1 .v{display:block;font-size:.32em;letter-spacing:.04em;color:var(--ink-dim);
     -webkit-text-fill-color:var(--ink-dim);margin-top:14px;font-weight:500}
   .tag{max-width:560px;margin:26px auto 0;color:var(--ink-dim);font-size:.95rem}
   .tag b{color:var(--teal);font-weight:600}
@@ -85,11 +85,11 @@
   .sec{margin-top:70px}
   .sec-head{display:flex;align-items:center;gap:16px;margin-bottom:26px}
   .sec-num{
-    font-family:'Codex Pro','JetBrains Mono','IBM Plex Mono',ui-monospace,monospace;font-weight:700;font-size:.9rem;color:#fff;
+    font-family:'Source Code Pro',ui-monospace,monospace;font-weight:700;font-size:.9rem;color:#fff;
     background:var(--accent);width:30px;height:30px;display:grid;place-items:center;border-radius:7px;
     box-shadow:0 0 22px rgba(70,42,179,.5);flex:none;
   }
-  .sec-title{font-family:'Codex Pro','JetBrains Mono','IBM Plex Mono',ui-monospace,monospace;font-weight:600;font-size:1.5rem;letter-spacing:.01em}
+  .sec-title{font-family:'Source Code Pro',ui-monospace,monospace;font-weight:600;font-size:1.5rem;letter-spacing:.01em}
   .sec-line{flex:1;height:1px;background:linear-gradient(90deg,var(--panel-edge),transparent)}
 
   /* ---------- WORKFLOW PIPELINE ---------- */
@@ -103,16 +103,16 @@
   .step .dot{
     position:absolute;left:20px;top:22px;width:26px;height:26px;border-radius:50%;
     border:2px solid var(--teal);display:grid;place-items:center;font-size:.8rem;
-    font-family:'Codex Pro','JetBrains Mono','IBM Plex Mono',ui-monospace,monospace;font-weight:700;color:var(--teal);background:var(--bg2);
+    font-family:'Source Code Pro',ui-monospace,monospace;font-weight:700;color:var(--teal);background:var(--bg2);
   }
-  .step h3{font-family:'Codex Pro','JetBrains Mono','IBM Plex Mono',ui-monospace,monospace;font-size:1.05rem;font-weight:600;margin-bottom:3px}
+  .step h3{font-family:'Source Code Pro',ui-monospace,monospace;font-size:1.05rem;font-weight:600;margin-bottom:3px}
   .step p{font-size:.86rem;color:var(--ink-dim)}
   .step .gate{color:var(--amber)}
   .arrow{display:flex;justify-content:center;color:var(--teal-soft);font-size:1.1rem;line-height:0;margin:-4px 0 10px}
   .pill-cap{
-    display:inline-block;margin-top:7px;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
-    color:var(--cyan);border:1px solid rgba(52,200,255,.3);padding:3px 9px;border-radius:6px;
-    background:rgba(52,200,255,.06);
+    display:inline-block;margin-top:7px;font-size:.78rem;letter-spacing:.01em;
+    color:var(--accent-bright);border:1px solid rgba(124,92,220,.35);padding:3px 9px;border-radius:6px;
+    background:rgba(70,42,179,.08);
   }
 
   /* ---------- ROLE CARDS ---------- */
@@ -127,10 +127,10 @@
   .role.guard::before{background:var(--teal)}
   .role.guard{border-color:var(--teal-soft)}
   .role.beta::before{background:#ffffff}
-  .role .rname{font-family:'Codex Pro','JetBrains Mono','IBM Plex Mono',ui-monospace,monospace;font-weight:700;font-size:1.2rem;margin-bottom:4px}
+  .role .rname{font-family:'Source Code Pro',ui-monospace,monospace;font-weight:700;font-size:1.2rem;margin-bottom:4px}
   .role.guard .rname{color:var(--accent-bright)}
   .role.beta .rname{color:#ffffff}
-  .role .rsub{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:14px}
+  .role .rsub{font-size:.78rem;letter-spacing:.01em;color:var(--ink-dim);margin-bottom:14px}
   .role ul{list-style:none;font-size:.82rem;color:var(--ink-dim);display:flex;flex-direction:column;gap:7px}
   .role li{padding-left:16px;position:relative}
   .role li::before{content:"›";position:absolute;left:0;color:var(--teal)}
@@ -140,7 +140,7 @@
   .col{background:var(--panel);border:1px solid var(--panel-edge);border-radius:14px;padding:22px}
   .col.earn{border-top:3px solid var(--teal)}
   .col.lose{border-top:3px solid var(--red)}
-  .col h3{font-family:'Codex Pro','JetBrains Mono','IBM Plex Mono',ui-monospace,monospace;font-size:1.15rem;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+  .col h3{font-family:'Source Code Pro',ui-monospace,monospace;font-size:1.15rem;margin-bottom:16px;display:flex;align-items:center;gap:8px}
   .col.earn h3{color:var(--teal)}
   .col.lose h3{color:var(--red)}
   .row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;
@@ -148,7 +148,7 @@
   .row:last-child{border-bottom:0}
   .row .what{font-size:.85rem}
   .row .what small{display:block;color:var(--ink-dim);font-size:.72rem;margin-top:2px}
-  .val{font-family:'Codex Pro','JetBrains Mono','IBM Plex Mono',ui-monospace,monospace;font-weight:700;font-size:1rem;white-space:nowrap;flex:none}
+  .val{font-family:'Source Code Pro',ui-monospace,monospace;font-weight:700;font-size:1rem;white-space:nowrap;flex:none}
   .val.pos{color:var(--teal)}
   .val.neg{color:var(--red)}
 
@@ -157,8 +157,8 @@
   .stat{background:var(--panel);border:1px solid var(--panel-edge);border-radius:14px;
     padding:22px 18px;text-align:center;transition:border-color .25s}
   .stat:hover{border-color:var(--teal-soft)}
-  .stat .big{font-family:'Codex Pro','JetBrains Mono','IBM Plex Mono',ui-monospace,monospace;font-weight:700;font-size:2.3rem;color:var(--teal);line-height:1}
-  .stat .lbl{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim);margin-top:8px}
+  .stat .big{font-family:'Source Code Pro',ui-monospace,monospace;font-weight:700;font-size:2.3rem;color:var(--teal);line-height:1}
+  .stat .lbl{font-size:.82rem;letter-spacing:.01em;color:var(--ink-dim);margin-top:8px}
 
   /* ---------- SOMI ---------- */
   .somi{background:linear-gradient(135deg,var(--panel),#0c1620);border:1px solid var(--panel-edge);
@@ -166,23 +166,23 @@
   .podium{display:flex;align-items:flex-end;justify-content:center;gap:12px;height:170px}
   .bar{border-radius:8px 8px 0 0;width:78px;display:flex;flex-direction:column;justify-content:flex-start;
     align-items:center;padding-top:12px;position:relative}
-  .bar .place{font-family:'Codex Pro','JetBrains Mono','IBM Plex Mono',ui-monospace,monospace;font-weight:700;font-size:1.4rem}
+  .bar .place{font-family:'Source Code Pro',ui-monospace,monospace;font-weight:700;font-size:1.4rem}
   .bar .amt{font-size:.74rem;margin-top:4px;color:var(--bg);font-weight:600}
   .bar.g1{height:100%;background:linear-gradient(180deg,var(--accent-bright),var(--accent))}
   .bar.g2{height:74%;background:linear-gradient(180deg,#bbbbbb,#555555)}
   .bar.g3{height:54%;background:linear-gradient(180deg,#666666,#2a2a2a)}
   .bar .place,.bar .amt{color:#fff}
-  .somi-txt h3{font-family:'Codex Pro','JetBrains Mono','IBM Plex Mono',ui-monospace,monospace;font-size:1.4rem;color:var(--teal);margin-bottom:10px}
+  .somi-txt h3{font-family:'Source Code Pro',ui-monospace,monospace;font-size:1.4rem;color:var(--teal);margin-bottom:10px}
   .somi-txt p{font-size:.86rem;color:var(--ink-dim);margin-bottom:12px}
   .somi-txt .note{font-size:.76rem;color:var(--amber);border-left:2px solid var(--amber);padding-left:12px}
 
   /* ---------- PHILOSOPHY ---------- */
   .philo{text-align:center;padding:50px 30px;border:1px solid var(--panel-edge);border-radius:16px;
     background:radial-gradient(600px 300px at 50% 0%,rgba(61,245,197,.06),transparent)}
-  .philo .q{font-family:'Codex Pro','JetBrains Mono','IBM Plex Mono',ui-monospace,monospace;font-weight:600;font-size:clamp(1.4rem,4vw,2.1rem);
+  .philo .q{font-family:'Source Code Pro',ui-monospace,monospace;font-weight:600;font-size:clamp(1.4rem,4vw,2.1rem);
     line-height:1.25;max-width:680px;margin:0 auto}
   .philo .q b{color:var(--teal)}
-  .philo .sig{margin-top:22px;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-dim)}
+  .philo .sig{margin-top:22px;font-size:.82rem;letter-spacing:.01em;color:var(--ink-dim)}
 
   footer{text-align:center;margin-top:60px;color:var(--ink-dim);font-size:.74rem;letter-spacing:.06em}
   footer .frog{font-size:1.1rem}
@@ -209,13 +209,13 @@
       <img src="./somnia-logo.png" alt="Somnia" onerror="this.outerHTML='<span>{S} somnia</span>'">
     </a>
     <span class="kicker reveal">Somnia Agentic L1 · Community Reputation</span>
-    <h1 class="reveal d1">SOMNIA&nbsp;REP<span class="v">SYSTEM&nbsp;MAP</span></h1>
+    <h1 class="reveal d1">Somnia&nbsp;REP<span class="v">system map</span></h1>
     <p class="tag reveal d2">REP is an <b>identity signal</b>, not a currency. The number isn't something you spend — it's visible proof you've contributed consistently. The harder it is to earn, the more it means to hold.</p>
   </header>
 
   <!-- 1. WORKFLOW -->
   <section class="sec">
-    <div class="sec-head reveal"><span class="sec-num">1</span><span class="sec-title">The Path to Guardian</span><span class="sec-line"></span></div>
+    <div class="sec-head reveal"><span class="sec-num">1</span><span class="sec-title">The path to Guardian</span><span class="sec-line"></span></div>
     <div class="flow">
       <div class="step reveal d1"><span class="dot">01</span>
         <h3>Newcomer</h3>
@@ -286,7 +286,7 @@
 
   <!-- 3. EARN / LOSE -->
   <section class="sec">
-    <div class="sec-head reveal"><span class="sec-num">3</span><span class="sec-title">REP In · REP Out</span><span class="sec-line"></span></div>
+    <div class="sec-head reveal"><span class="sec-num">3</span><span class="sec-title">REP in · REP out</span><span class="sec-line"></span></div>
     <div class="ledger">
       <div class="col earn reveal d1">
         <h3>↑ Earning</h3>
@@ -307,7 +307,7 @@
 
   <!-- 4. NUMBERS -->
   <section class="sec">
-    <div class="sec-head reveal"><span class="sec-num">4</span><span class="sec-title">Locked Numbers</span><span class="sec-line"></span></div>
+    <div class="sec-head reveal"><span class="sec-num">4</span><span class="sec-title">Locked numbers</span><span class="sec-line"></span></div>
     <div class="stats">
       <div class="stat reveal d1"><div class="big">200</div><div class="lbl">Guardian cap</div></div>
       <div class="stat reveal d2"><div class="big">400</div><div class="lbl">REP cap / user</div></div>
@@ -318,7 +318,7 @@
 
   <!-- 5. SOMI -->
   <section class="sec">
-    <div class="sec-head reveal"><span class="sec-num">5</span><span class="sec-title">Monthly SOMI Payout</span><span class="sec-line"></span></div>
+    <div class="sec-head reveal"><span class="sec-num">5</span><span class="sec-title">Monthly SOMI payout</span><span class="sec-line"></span></div>
     <div class="somi reveal d1">
       <div class="podium">
         <div class="bar g2"><span class="place">2</span><span class="amt">350</span></div>
