@@ -187,6 +187,12 @@
   .philo .q b{color:var(--teal)}
   .philo .sig{margin-top:22px;font-size:.82rem;letter-spacing:.01em;color:var(--ink-dim)}
 
+  /* ---------- INLINE CHANNEL LINKS ---------- */
+  a:has(code), a:has(b){text-decoration:none;display:inline-block;transition:opacity .2s}
+  a:has(code) code, a:has(b) b{transition:color .2s,background .2s}
+  a:hover code{background:var(--accent) !important;color:#fff !important}
+  a:hover b{color:var(--accent-bright) !important}
+
   /* ---------- FIRST MOVE ---------- */
   .first-move{margin-top:40px;background:linear-gradient(135deg,rgba(70,42,179,.20),rgba(124,92,220,.04));
     border:1px solid var(--accent);border-radius:14px;padding:22px 26px;
@@ -288,7 +294,7 @@
   <div class="first-move reveal d3">
     <div class="ic">&rarr;</div>
     <div class="txt">
-      <b>Just landed here?</b> Open <code>#contribution-board</code>, post your strongest piece of work, and watch for 4 mod ✅ reactions. That's how it starts for you.
+      <b>Just landed here?</b> Open <a href="https://discord.com/channels/1209923224620761088/1509489306173968526" target="_blank" rel="noopener"><code>#contribution-board</code></a>, post your strongest piece of work, and watch for 4 mod ✅ reactions. That's how it starts for you.
     </div>
   </div>
 
@@ -349,7 +355,7 @@
       <div class="arrow">▼</div>
       <div class="step reveal d2"><span class="dot">02</span>
         <h3>Build a portfolio</h3>
-        <p>Post in <b>#contribution-board</b>. Each thread that gets <b>4-mod ✅ consensus</b> counts toward your tally.</p>
+        <p>Post in <a href="https://discord.com/channels/1209923224620761088/1509489306173968526" target="_blank" rel="noopener"><b>#contribution-board</b></a>. Each thread that gets <b>4-mod ✅ consensus</b> counts toward your tally.</p>
         <span class="pill-cap">Gate: 10 approved posts required</span>
       </div>
       <div class="arrow">▼</div>
@@ -489,7 +495,7 @@
       <details class="reveal d1">
         <summary>How do I become a Guardian?</summary>
         <div class="a">
-          <b>1)</b> Post in <code>#contribution-board</code> in Discord. Each post that gets <b>4 distinct mods reacting ✅</b> counts toward your tally.<br><br>
+          <b>1)</b> Post in <a href="https://discord.com/channels/1209923224620761088/1509489306173968526" target="_blank" rel="noopener"><code>#contribution-board</code></a> in Discord. Each post that gets <b>4 distinct mods reacting ✅</b> counts toward your tally.<br><br>
           <b>2)</b> Once you have <b>10 approved posts</b>, you can submit the Apply for Guardian quest.<br><br>
           <b>3)</b> A mod reviews your application.<br><br>
           <b>4)</b> When a slot opens (cap of 200), a mod runs <code>/rep guardian</code> and you get the role + your first REP.
