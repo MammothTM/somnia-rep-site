@@ -249,6 +249,22 @@
   .faq .a b{color:var(--ink)}
   .faq .a code{background:var(--bg2);color:var(--accent-bright);padding:1px 6px;border-radius:4px;font-size:.85em}
 
+  /* ---------- COMMANDS ---------- */
+  .cmd-group{margin-top:28px}
+  .cmd-group:first-child{margin-top:0}
+  .cmd-group h4{font-size:.98rem;color:var(--accent-bright);margin-bottom:14px;font-weight:600;
+    font-family:'Source Code Pro',ui-monospace,monospace}
+  .cmd-list{display:flex;flex-direction:column;gap:8px}
+  .cmd-row{display:grid;grid-template-columns:minmax(220px, 320px) 1fr;gap:18px;
+    padding:12px 16px;background:var(--panel);border:1px solid var(--panel-edge);border-radius:10px;
+    font-size:.86rem;align-items:start;transition:border-color .2s}
+  .cmd-row:hover{border-color:var(--accent)}
+  .cmd-row code{background:var(--bg2);color:var(--accent-bright);padding:3px 9px;border-radius:5px;
+    font-size:.84em;font-weight:500;display:inline-block;word-break:break-word}
+  .cmd-row .desc{color:var(--ink-dim);line-height:1.55}
+  .cmd-row .role{display:inline-block;font-size:.7rem;padding:2px 7px;border-radius:4px;
+    background:rgba(70,42,179,.18);color:var(--accent-bright);margin-left:6px;font-weight:600}
+
   /* ---------- META ---------- */
   .last-updated{text-align:center;margin-top:18px;color:var(--ink-dim);font-size:.74rem;opacity:.7}
 
@@ -275,6 +291,7 @@
     .stats{grid-template-columns:1fr 1fr}
     .somi{grid-template-columns:1fr}
     .first-move{flex-direction:column;text-align:center}
+    .cmd-row{grid-template-columns:1fr;gap:6px}
   }
 </style>
 </head>
@@ -547,6 +564,67 @@
         <summary>Is there a cap on REP?</summary>
         <div class="a">Yes, balances are capped at <b>400 REP</b>. Once you hit it, you stop accruing until decay or a penalty brings you back under. This keeps the leaderboard meaningful and prevents long-time Guardians from running away with the score forever.</div>
       </details>
+    </div>
+  </section>
+
+  <!-- 8. COMMANDS -->
+  <section class="sec">
+    <div class="sec-head reveal"><span class="sec-num">8</span><span class="sec-title">Bot commands</span><span class="sec-line"></span></div>
+
+    <div class="cmd-group reveal d1">
+      <h4>For everyone</h4>
+      <div class="cmd-list">
+        <div class="cmd-row">
+          <div><code>/rep balance</code></div>
+          <div class="desc">Show your REP balance. Optional <code>user</code> parameter to look up someone else.</div>
+        </div>
+        <div class="cmd-row">
+          <div><code>/rep leaderboard</code></div>
+          <div class="desc">Top REP holders. Optional <code>limit</code> (1-25, default 10).</div>
+        </div>
+        <div class="cmd-row">
+          <div><code>/rep history</code></div>
+          <div class="desc">Your own approved-contribution history. Shows up to 15 recent threads with direct links.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cmd-group reveal d2">
+      <h4>For mods and admins</h4>
+      <div class="cmd-list">
+        <div class="cmd-row">
+          <div><code>/rep info @user</code></div>
+          <div class="desc">Full profile of any user: REP balance, contribution history, quest completions, roles, server-join date. <span class="role">Mod+</span></div>
+        </div>
+        <div class="cmd-row">
+          <div><code>/rep guardian @user "reason"</code></div>
+          <div class="desc">Grant the Guardian role + first REP. Used after approving an Apply for Guardian quest. <span class="role">Mod+</span></div>
+        </div>
+        <div class="cmd-row">
+          <div><code>/rep award @user N "reason"</code></div>
+          <div class="desc">Bonus REP (N = 1 to 7) for exceptional contributions. Stacks on the base +3 from the contribution board. <span class="role">Mod+</span></div>
+        </div>
+        <div class="cmd-row">
+          <div><code>/rep penalty @user spam "reason"</code></div>
+          <div class="desc">Deduct 3 REP for low-effort or repeated noise. <span class="role">Admin+</span></div>
+        </div>
+        <div class="cmd-row">
+          <div><code>/rep penalty @user misleading "reason"</code></div>
+          <div class="desc">Deduct 10 REP for misleading content that could harm users. <span class="role">Admin+</span></div>
+        </div>
+        <div class="cmd-row">
+          <div><code>/rep boot @user "reason"</code></div>
+          <div class="desc">Manual boot: halve balance and revoke the Guardian role. <span class="role">Admin+</span></div>
+        </div>
+        <div class="cmd-row">
+          <div><code>/rep new-engagement url:&lt;x-post&gt;</code></div>
+          <div class="desc">Create a Guardian-gated X engagement quest. Then run Flippy's <code>/quest share</code> with the returned ID to post it to the channel. <span class="role">Manager</span></div>
+        </div>
+        <div class="cmd-row">
+          <div><code>/rep health</code></div>
+          <div class="desc">System health snapshot: uptime, Guardian count, FlipSuite API checks, DB stats. <span class="role">Admin+</span></div>
+        </div>
+      </div>
     </div>
   </section>
 
