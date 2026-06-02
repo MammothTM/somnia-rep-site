@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Somnia REP — System Map</title>
+<title>Somnia REP - System Map</title>
 <link rel="icon" type="image/png" href="./somnia-logo.png">
-<meta property="og:title" content="Somnia REP — System Map">
+<meta property="og:title" content="Somnia REP - System Map">
 <meta property="og:description" content="REP is an identity signal, not a currency. The harder it is to earn, the more it means to hold.">
 <meta property="og:image" content="./og-image.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -184,8 +184,17 @@
   .philo .q b{color:var(--teal)}
   .philo .sig{margin-top:22px;font-size:.82rem;letter-spacing:.01em;color:var(--ink-dim)}
 
-  footer{text-align:center;margin-top:60px;color:var(--ink-dim);font-size:.74rem;letter-spacing:.06em}
-  footer .frog{font-size:1.1rem}
+  footer{text-align:center;margin-top:60px;color:var(--ink-dim);font-size:.82rem;letter-spacing:.01em}
+  footer a{color:var(--accent-bright);text-decoration:none;border-bottom:1px solid rgba(124,92,220,.4);
+    padding-bottom:1px;transition:border-color .2s}
+  footer a:hover{border-color:var(--accent-bright)}
+  .cta{display:flex;justify-content:center;gap:12px;margin-top:34px;flex-wrap:wrap}
+  .cta a{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:10px;
+    text-decoration:none;font-size:.92rem;font-weight:500;transition:transform .2s,background .2s}
+  .cta a.primary{background:var(--accent);color:#fff}
+  .cta a.primary:hover{background:var(--accent-bright);transform:translateY(-2px)}
+  .cta a.ghost{border:1px solid var(--panel-edge);color:var(--ink)}
+  .cta a.ghost:hover{border-color:var(--accent);transform:translateY(-2px)}
 
   /* ---------- ANIMATION ---------- */
   .reveal{opacity:0;transform:translateY(20px);animation:up .7s forwards}
@@ -208,9 +217,8 @@
     <a class="brand reveal" href="https://somnia.network" target="_blank" rel="noopener">
       <img src="./somnia-logo.png" alt="Somnia" onerror="this.outerHTML='<span>{S} somnia</span>'">
     </a>
-    <span class="kicker reveal">Somnia Agentic L1 · Community Reputation</span>
     <h1 class="reveal d1">Somnia&nbsp;REP<span class="v">system map</span></h1>
-    <p class="tag reveal d2">REP is an <b>identity signal</b>, not a currency. The number isn't something you spend — it's visible proof you've contributed consistently. The harder it is to earn, the more it means to hold.</p>
+    <p class="tag reveal d2">REP is an <b>identity signal</b>, not a currency. The number isn't something you spend - it's visible proof you've contributed consistently. The harder it is to earn, the more it means to hold.</p>
   </header>
 
   <!-- 1. WORKFLOW -->
@@ -235,13 +243,13 @@
       <div class="arrow">▼</div>
       <div class="step reveal d4"><span class="dot">04</span>
         <h3>Application review</h3>
-        <p>A mod reads your application in FlipSuite and decides if it meets the bar. Passing review just clears the queue — <b>no REP, no role yet</b>. You're now waiting for an open Guardian slot.</p>
+        <p>A mod reads your application in FlipSuite and decides if it meets the bar. Passing review just clears the queue - <b>no REP, no role yet</b>. You're now waiting for an open Guardian slot.</p>
         <span class="pill-cap">Queue depends on the 200-cap</span>
       </div>
       <div class="arrow">▼</div>
       <div class="step reveal d5"><span class="dot">05</span>
         <h3>Promotion to Guardian</h3>
-        <p>Once a slot is open — either naturally (a Guardian gets booted at 60d inactivity) or via manual review — a mod runs <code>/rep guardian @you</code>. <b>+1 REP and the role land together.</b></p>
+        <p>Once a slot is open - either naturally (a Guardian gets booted at 60d inactivity) or via manual review - a mod runs <code>/rep guardian @you</code>. <b>+1 REP and the role land together.</b></p>
         <span class="pill-cap">Caps at 200 active Guardians</span>
       </div>
     </div>
@@ -277,8 +285,8 @@
         <ul>
           <li>For pre-launch backfill recipients</li>
           <li>"I was here first" signal</li>
-          <li>Exclusive perks over time — events, raffles, drops</li>
-          <li>Permanent — never revoked</li>
+          <li>Exclusive perks over time - events, raffles, drops</li>
+          <li>Permanent - never revoked</li>
         </ul>
       </div>
     </div>
@@ -327,7 +335,7 @@
       </div>
       <div class="somi-txt">
         <h3>Top 3 by 30-day earnings</h3>
-        <p>Ranked by REP <b>earned in the last 30 days</b> — not by total balance. A 50-REP newcomer with a hot month can beat a 400-REP veteran who went quiet.</p>
+        <p>Ranked by REP <b>earned in the last 30 days</b> - not by total balance. A 50-REP newcomer with a hot month can beat a 400-REP veteran who went quiet.</p>
         <p class="note">1-month winner cooldown: win this month, you sit out the next. Keeps the spotlight rotating.</p>
       </div>
     </div>
@@ -336,13 +344,18 @@
   <!-- PHILOSOPHY -->
   <section class="sec">
     <div class="philo reveal d1">
-      <div class="q">Earned, not given. <b>Active</b>, not historical.<br>The number itself is the prize — <b>SOMI is the cherry, not the cake.</b></div>
-      <div class="sig">— Somnia REP v2 · core principles</div>
+      <div class="q">Earned, not given. <b>Active</b>, not historical.<br>The number itself is the prize - <b>SOMI is the cherry, not the cake.</b></div>
+      <div class="sig">- Somnia REP v2 · core principles</div>
     </div>
   </section>
 
+  <div class="cta reveal d2">
+    <a class="primary" href="https://discord.gg/somnia" target="_blank" rel="noopener">Join the Discord</a>
+    <a class="ghost" href="https://somnia.network" target="_blank" rel="noopener">Somnia network</a>
+  </div>
+
   <footer class="reveal d2">
-    <span class="frog">🐸</span> Built for the Somnia Guardian crew · gm anon
+    Built for the Somnia Guardian crew · gm anon
   </footer>
 
 </div>
