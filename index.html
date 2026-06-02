@@ -187,6 +187,47 @@
   .philo .q b{color:var(--teal)}
   .philo .sig{margin-top:22px;font-size:.82rem;letter-spacing:.01em;color:var(--ink-dim)}
 
+  /* ---------- FIRST MOVE ---------- */
+  .first-move{margin-top:40px;background:linear-gradient(135deg,rgba(70,42,179,.20),rgba(124,92,220,.04));
+    border:1px solid var(--accent);border-radius:14px;padding:22px 26px;
+    display:flex;gap:18px;align-items:center}
+  .first-move .ic{flex:none;width:46px;height:46px;border-radius:50%;background:var(--accent);
+    display:grid;place-items:center;color:#fff;font-weight:700;font-size:1.5rem}
+  .first-move .txt{font-size:.95rem;line-height:1.55}
+  .first-move .txt b{color:var(--accent-bright);font-weight:600}
+  .first-move .txt code{background:var(--bg2);color:var(--accent-bright);padding:2px 8px;border-radius:5px;font-size:.85em}
+
+  /* ---------- EXAMPLES ---------- */
+  .examples{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .ex{background:var(--panel);border:1px solid var(--panel-edge);border-radius:14px;
+    padding:22px 20px;transition:transform .25s,border-color .25s}
+  .ex:hover{transform:translateY(-3px);border-color:var(--accent)}
+  .ex .icon{font-size:1.7rem;margin-bottom:12px;display:block;line-height:1}
+  .ex h4{font-family:'Source Code Pro',ui-monospace,monospace;font-size:.98rem;font-weight:600;
+    margin-bottom:6px;color:var(--ink)}
+  .ex p{font-size:.82rem;color:var(--ink-dim);line-height:1.55}
+  .dq{margin-top:22px;text-align:center;font-size:.85rem;color:var(--ink-dim);
+    padding:14px 20px;border:1px dashed var(--panel-edge);border-radius:10px}
+  .dq b{color:#cccccc;font-weight:600}
+
+  /* ---------- WEEKLY CADENCE ---------- */
+  .cadence{margin-top:18px;background:var(--panel);border:1px solid var(--panel-edge);
+    border-left:3px solid var(--accent);border-radius:10px;padding:18px 22px;font-size:.92rem}
+  .cadence b{color:var(--accent-bright);font-weight:600}
+  .cadence small{display:block;color:var(--ink-dim);font-size:.82rem;margin-top:8px;line-height:1.6}
+
+  /* ---------- BONUS TIERS ---------- */
+  .tiers-head{font-size:.92rem;color:var(--ink-dim);margin:32px 0 14px;text-align:center}
+  .tiers-head b{color:var(--ink);font-weight:600}
+  .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .tier{background:var(--panel);border:1px solid var(--panel-edge);border-radius:14px;
+    padding:20px 22px;position:relative;overflow:hidden}
+  .tier::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent)}
+  .tier .amt{font-family:'Source Code Pro',ui-monospace,monospace;font-weight:700;font-size:1.7rem;
+    color:var(--accent-bright);line-height:1;margin-bottom:6px}
+  .tier .when{font-size:.86rem;color:var(--ink);margin-bottom:8px;font-weight:600}
+  .tier .ex-text{font-size:.78rem;color:var(--ink-dim);line-height:1.55}
+
   /* ---------- FAQ ---------- */
   .faq{display:flex;flex-direction:column;gap:10px}
   .faq details{background:var(--panel);border:1px solid var(--panel-edge);border-radius:14px;
@@ -224,9 +265,10 @@
   .d4{animation-delay:.28s}.d5{animation-delay:.36s}.d6{animation-delay:.44s}
 
   @media(max-width:760px){
-    .roles,.ledger,.stats{grid-template-columns:1fr}
+    .roles,.ledger,.stats,.examples,.tiers{grid-template-columns:1fr}
     .stats{grid-template-columns:1fr 1fr}
     .somi{grid-template-columns:1fr}
+    .first-move{flex-direction:column;text-align:center}
   }
 </style>
 </head>
@@ -242,9 +284,63 @@
     <p class="tag reveal d2">REP is an <b>identity signal</b>, not a currency. The number isn't something you spend - it's visible proof you've contributed consistently. The harder it is to earn, the more it means to hold.</p>
   </header>
 
-  <!-- 1. WORKFLOW -->
+  <!-- YOUR FIRST MOVE -->
+  <div class="first-move reveal d3">
+    <div class="ic">&rarr;</div>
+    <div class="txt">
+      <b>Just landed here?</b> Open <code>#contribution-board</code>, post your strongest piece of work, and watch for 4 mod ✅ reactions. That's how it starts for you.
+    </div>
+  </div>
+
+  <!-- 1. WHAT COUNTS -->
   <section class="sec">
-    <div class="sec-head reveal"><span class="sec-num">1</span><span class="sec-title">The path to Guardian</span><span class="sec-line"></span></div>
+    <div class="sec-head reveal"><span class="sec-num">1</span><span class="sec-title">What counts as a contribution</span><span class="sec-line"></span></div>
+    <div class="examples">
+      <div class="ex reveal d1">
+        <span class="icon">📝</span>
+        <h4>Educational thread</h4>
+        <p>Break down a Somnia feature, mechanism, or roadmap update. Original analysis people learn from.</p>
+      </div>
+      <div class="ex reveal d2">
+        <span class="icon">🎨</span>
+        <h4>Original art or media</h4>
+        <p>Art, animation, design, memes with clear Somnia identity. A series or recurring style is especially valued.</p>
+      </div>
+      <div class="ex reveal d3">
+        <span class="icon">🛠️</span>
+        <h4>Tools and dashboards</h4>
+        <p>Something you built that helps the community: trackers, calculators, dashboards, bots, sites.</p>
+      </div>
+      <div class="ex reveal d4">
+        <span class="icon">📚</span>
+        <h4>Tutorials and guides</h4>
+        <p>How-to content, walkthroughs, onboarding for newcomers, docs that fill a real gap.</p>
+      </div>
+      <div class="ex reveal d5">
+        <span class="icon">🎬</span>
+        <h4>Video or audio</h4>
+        <p>Explainers, walkthroughs, recap videos, podcast episodes, Twitter Spaces summaries.</p>
+      </div>
+      <div class="ex reveal d6">
+        <span class="icon">🤝</span>
+        <h4>Consistent helpfulness</h4>
+        <p>A pattern of answering newcomer questions, debugging in support, being the go-to person in a channel.</p>
+      </div>
+    </div>
+
+    <div class="cadence reveal d6">
+      <b>Pro tip: one summary thread per week beats spamming individual posts.</b>
+      <small>Bundle everything you did that week into a single forum thread. Mods see the full picture and can stack a bigger bonus on top of the base +3 if your week was outstanding. Quality and rhythm both count.</small>
+    </div>
+
+    <div class="dq reveal d6">
+      <b>What doesn't count:</b> low-effort memes with no Somnia context, "gm" posts, copy-pasted content, repeated noise. Mods just won't react.
+    </div>
+  </section>
+
+  <!-- 2. WORKFLOW -->
+  <section class="sec">
+    <div class="sec-head reveal"><span class="sec-num">2</span><span class="sec-title">The path to Guardian</span><span class="sec-line"></span></div>
     <div class="flow">
       <div class="step reveal d1"><span class="dot">01</span>
         <h3>Newcomer</h3>
@@ -278,7 +374,7 @@
 
   <!-- 2. ROLES -->
   <section class="sec">
-    <div class="sec-head reveal"><span class="sec-num">2</span><span class="sec-title">Roles</span><span class="sec-line"></span></div>
+    <div class="sec-head reveal"><span class="sec-num">3</span><span class="sec-title">Roles</span><span class="sec-line"></span></div>
     <div class="roles">
       <div class="role new reveal d1">
         <div class="rname">Newcomer</div>
@@ -315,7 +411,7 @@
 
   <!-- 3. EARN / LOSE -->
   <section class="sec">
-    <div class="sec-head reveal"><span class="sec-num">3</span><span class="sec-title">REP in · REP out</span><span class="sec-line"></span></div>
+    <div class="sec-head reveal"><span class="sec-num">4</span><span class="sec-title">REP in · REP out</span><span class="sec-line"></span></div>
     <div class="ledger">
       <div class="col earn reveal d1">
         <h3>↑ Earning</h3>
@@ -332,11 +428,30 @@
         <div class="row"><div class="what">Boot<small>60d no credit → role revoked too</small></div><span class="val neg">−50%</span></div>
       </div>
     </div>
+
+    <div class="tiers-head reveal d3"><b>How the +1 to +7 bonus is graded</b> &nbsp;·&nbsp; rough scale, mod discretion</div>
+    <div class="tiers">
+      <div class="tier reveal d4">
+        <div class="amt">+1 to +2</div>
+        <div class="when">Small but valuable</div>
+        <div class="ex-text">A useful meme, a quick tutorial, a helpful answer in chat that genuinely helps a newcomer.</div>
+      </div>
+      <div class="tier reveal d5">
+        <div class="amt">+3 to +4</div>
+        <div class="when">Solid contribution</div>
+        <div class="ex-text">A real thread, a useful written guide, a contribution that obviously took meaningful effort.</div>
+      </div>
+      <div class="tier reveal d6">
+        <div class="amt">+5 to +7</div>
+        <div class="when">Outstanding work</div>
+        <div class="ex-text">A viral post, a major tutorial series, a tool or site you built, work that genuinely lifts the community.</div>
+      </div>
+    </div>
   </section>
 
   <!-- 4. NUMBERS -->
   <section class="sec">
-    <div class="sec-head reveal"><span class="sec-num">4</span><span class="sec-title">Locked numbers</span><span class="sec-line"></span></div>
+    <div class="sec-head reveal"><span class="sec-num">5</span><span class="sec-title">Locked numbers</span><span class="sec-line"></span></div>
     <div class="stats">
       <div class="stat reveal d1"><div class="big">200</div><div class="lbl">Guardian cap</div></div>
       <div class="stat reveal d2"><div class="big">400</div><div class="lbl">REP cap / user</div></div>
@@ -347,7 +462,7 @@
 
   <!-- 5. SOMI -->
   <section class="sec">
-    <div class="sec-head reveal"><span class="sec-num">5</span><span class="sec-title">Monthly SOMI payout</span><span class="sec-line"></span></div>
+    <div class="sec-head reveal"><span class="sec-num">6</span><span class="sec-title">Monthly SOMI payout</span><span class="sec-line"></span></div>
     <div class="somi reveal d1">
       <div class="podium">
         <div class="bar g2"><span class="place">2</span><span class="amt">350</span></div>
@@ -364,7 +479,7 @@
 
   <!-- FAQ -->
   <section class="sec">
-    <div class="sec-head reveal"><span class="sec-num">6</span><span class="sec-title">FAQ</span><span class="sec-line"></span></div>
+    <div class="sec-head reveal"><span class="sec-num">7</span><span class="sec-title">FAQ</span><span class="sec-line"></span></div>
     <div class="faq">
       <details class="reveal d1">
         <summary>What is REP and why does it matter?</summary>
