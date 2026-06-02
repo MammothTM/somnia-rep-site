@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Somnia REP — System Map</title>
+<link rel="icon" type="image/png" href="./somnia-logo.png">
+<meta property="og:title" content="Somnia REP — System Map">
+<meta property="og:description" content="REP is an identity signal, not a currency. The harder it is to earn, the more it means to hold.">
+<meta property="og:image" content="./og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* Somnia brand: pure black/white with #462AB3 as single accent. */
+    --bg:#000000;
+    --bg2:#0a0a0a;
+    --panel:#0d0d0d;
+    --panel-edge:#1f1f1f;
+    --ink:#ffffff;
+    --ink-dim:#888888;
+    --accent:#462AB3;          /* primary brand purple */
+    --accent-bright:#7c5cdc;   /* lifted purple for text on black */
+    --accent-soft:rgba(70,42,179,.18);
+    /* legacy var names mapped to brand palette so existing classes still work */
+    --teal:var(--accent-bright);
+    --teal-soft:var(--accent);
+    --cyan:var(--accent-bright);
+    --amber:#bbbbbb;
+    --red:#ff5c72;
+    --violet:var(--accent);
+    --grid:rgba(255,255,255,.04);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Codex Pro','JetBrains Mono','IBM Plex Mono',ui-monospace,monospace;
+    line-height:1.55;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+    background-size:46px 46px;
+    mask-image:radial-gradient(ellipse 90% 70% at 50% 0%,#000 30%,transparent 90%);
+  }
+  body::after{
+    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:radial-gradient(900px 500px at 80% -5%,rgba(70,42,179,.18),transparent 60%),
+               radial-gradient(800px 500px at 10% 8%,rgba(124,92,220,.10),transparent 55%);
+  }
+  .wrap{position:relative;z-index:1;max-width:1080px;margin:0 auto;padding:60px 26px 90px}
+
+  /* ---------- HERO ---------- */
+  .hero{text-align:center;padding:30px 0 54px;position:relative}
+  .brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);
+    margin-bottom:28px;opacity:.92;transition:opacity .2s}
+  .brand:hover{opacity:1}
+  .brand img{height:28px;width:auto;display:block}
+  .brand span{font-family:'Codex Pro','JetBrains Mono','IBM Plex Mono',ui-monospace,monospace;
+    font-size:1.1rem;font-weight:500;letter-spacing:.04em}
+  .kicker{
+    font-family:'Codex Pro','JetBrains Mono','IBM Plex Mono',ui-monospace,monospace;font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;
+    color:var(--teal);display:inline-block;padding:6px 16px;border:1px solid var(--panel-edge);
+    border-radius:999px;background:rgba(61,245,197,.05);margin-bottom:26px;
+  }
+  h1{
+    font-family:'Codex Pro','JetBrains Mono','IBM Plex Mono',ui-monospace,monospace;font-weight:700;line-height:.98;letter-spacing:-.01em;
+    font-size:clamp(2.6rem,8vw,5.4rem);
+    background:linear-gradient(180deg,#fff 0%,var(--accent-bright) 130%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    text-shadow:0 0 60px rgba(70,42,179,.28);
+  }
+  h1 .v{display:block;font-size:.32em;letter-spacing:.5em;color:var(--ink-dim);
+    -webkit-text-fill-color:var(--ink-dim);margin-top:14px;font-weight:500}
+  .tag{max-width:560px;margin:26px auto 0;color:var(--ink-dim);font-size:.95rem}
+  .tag b{color:var(--teal);font-weight:600}
+
+  /* ---------- SECTION ---------- */
+  .sec{margin-top:70px}
+  .sec-head{display:flex;align-items:center;gap:16px;margin-bottom:26px}
+  .sec-num{
+    font-family:'Codex Pro','JetBrains Mono','IBM Plex Mono',ui-monospace,monospace;font-weight:700;font-size:.9rem;color:#fff;
+    background:var(--accent);width:30px;height:30px;display:grid;place-items:center;border-radius:7px;
+    box-shadow:0 0 22px rgba(70,42,179,.5);flex:none;
+  }
+  .sec-title{font-family:'Codex Pro','JetBrains Mono','IBM Plex Mono',ui-monospace,monospace;font-weight:600;font-size:1.5rem;letter-spacing:.01em}
+  .sec-line{flex:1;height:1px;background:linear-gradient(90deg,var(--panel-edge),transparent)}
+
+  /* ---------- WORKFLOW PIPELINE ---------- */
+  .flow{display:flex;flex-direction:column;gap:0}
+  .step{
+    position:relative;padding:20px 22px 20px 64px;background:var(--panel);
+    border:1px solid var(--panel-edge);border-radius:14px;margin-bottom:14px;
+    transition:transform .25s,border-color .25s;
+  }
+  .step:hover{transform:translateX(6px);border-color:var(--teal-soft)}
+  .step .dot{
+    position:absolute;left:20px;top:22px;width:26px;height:26px;border-radius:50%;
+    border:2px solid var(--teal);display:grid;place-items:center;font-size:.8rem;
+    font-family:'Codex Pro','JetBrains Mono','IBM Plex Mono',ui-monospace,monospace;font-weight:700;color:var(--teal);background:var(--bg2);
+  }
+  .step h3{font-family:'Codex Pro','JetBrains Mono','IBM Plex Mono',ui-monospace,monospace;font-size:1.05rem;font-weight:600;margin-bottom:3px}
+  .step p{font-size:.86rem;color:var(--ink-dim)}
+  .step .gate{color:var(--amber)}
+  .arrow{display:flex;justify-content:center;color:var(--teal-soft);font-size:1.1rem;line-height:0;margin:-4px 0 10px}
+  .pill-cap{
+    display:inline-block;margin-top:7px;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--cyan);border:1px solid rgba(52,200,255,.3);padding:3px 9px;border-radius:6px;
+    background:rgba(52,200,255,.06);
+  }
+
+  /* ---------- ROLE CARDS ---------- */
+  .roles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .role{
+    background:var(--panel);border:1px solid var(--panel-edge);border-radius:14px;padding:22px;
+    position:relative;overflow:hidden;transition:transform .25s,border-color .25s;
+  }
+  .role:hover{transform:translateY(-4px)}
+  .role::before{content:"";position:absolute;top:0;left:0;right:0;height:3px}
+  .role.new::before{background:var(--ink-dim)}
+  .role.guard::before{background:var(--teal)}
+  .role.guard{border-color:var(--teal-soft)}
+  .role.beta::before{background:#ffffff}
+  .role .rname{font-family:'Codex Pro','JetBrains Mono','IBM Plex Mono',ui-monospace,monospace;font-weight:700;font-size:1.2rem;margin-bottom:4px}
+  .role.guard .rname{color:var(--accent-bright)}
+  .role.beta .rname{color:#ffffff}
+  .role .rsub{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:14px}
+  .role ul{list-style:none;font-size:.82rem;color:var(--ink-dim);display:flex;flex-direction:column;gap:7px}
+  .role li{padding-left:16px;position:relative}
+  .role li::before{content:"›";position:absolute;left:0;color:var(--teal)}
+
+  /* ---------- EARN / LOSE ---------- */
+  .ledger{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .col{background:var(--panel);border:1px solid var(--panel-edge);border-radius:14px;padding:22px}
+  .col.earn{border-top:3px solid var(--teal)}
+  .col.lose{border-top:3px solid var(--red)}
+  .col h3{font-family:'Codex Pro','JetBrains Mono','IBM Plex Mono',ui-monospace,monospace;font-size:1.15rem;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+  .col.earn h3{color:var(--teal)}
+  .col.lose h3{color:var(--red)}
+  .row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;
+    padding:11px 0;border-bottom:1px dashed var(--panel-edge)}
+  .row:last-child{border-bottom:0}
+  .row .what{font-size:.85rem}
+  .row .what small{display:block;color:var(--ink-dim);font-size:.72rem;margin-top:2px}
+  .val{font-family:'Codex Pro','JetBrains Mono','IBM Plex Mono',ui-monospace,monospace;font-weight:700;font-size:1rem;white-space:nowrap;flex:none}
+  .val.pos{color:var(--teal)}
+  .val.neg{color:var(--red)}
+
+  /* ---------- STATS ---------- */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .stat{background:var(--panel);border:1px solid var(--panel-edge);border-radius:14px;
+    padding:22px 18px;text-align:center;transition:border-color .25s}
+  .stat:hover{border-color:var(--teal-soft)}
+  .stat .big{font-family:'Codex Pro','JetBrains Mono','IBM Plex Mono',ui-monospace,monospace;font-weight:700;font-size:2.3rem;color:var(--teal);line-height:1}
+  .stat .lbl{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim);margin-top:8px}
+
+  /* ---------- SOMI ---------- */
+  .somi{background:linear-gradient(135deg,var(--panel),#0c1620);border:1px solid var(--panel-edge);
+    border-radius:16px;padding:30px;display:grid;grid-template-columns:1.1fr 1fr;gap:30px;align-items:center}
+  .podium{display:flex;align-items:flex-end;justify-content:center;gap:12px;height:170px}
+  .bar{border-radius:8px 8px 0 0;width:78px;display:flex;flex-direction:column;justify-content:flex-start;
+    align-items:center;padding-top:12px;position:relative}
+  .bar .place{font-family:'Codex Pro','JetBrains Mono','IBM Plex Mono',ui-monospace,monospace;font-weight:700;font-size:1.4rem}
+  .bar .amt{font-size:.74rem;margin-top:4px;color:var(--bg);font-weight:600}
+  .bar.g1{height:100%;background:linear-gradient(180deg,var(--accent-bright),var(--accent))}
+  .bar.g2{height:74%;background:linear-gradient(180deg,#bbbbbb,#555555)}
+  .bar.g3{height:54%;background:linear-gradient(180deg,#666666,#2a2a2a)}
+  .bar .place,.bar .amt{color:#fff}
+  .somi-txt h3{font-family:'Codex Pro','JetBrains Mono','IBM Plex Mono',ui-monospace,monospace;font-size:1.4rem;color:var(--teal);margin-bottom:10px}
+  .somi-txt p{font-size:.86rem;color:var(--ink-dim);margin-bottom:12px}
+  .somi-txt .note{font-size:.76rem;color:var(--amber);border-left:2px solid var(--amber);padding-left:12px}
+
+  /* ---------- PHILOSOPHY ---------- */
+  .philo{text-align:center;padding:50px 30px;border:1px solid var(--panel-edge);border-radius:16px;
+    background:radial-gradient(600px 300px at 50% 0%,rgba(61,245,197,.06),transparent)}
+  .philo .q{font-family:'Codex Pro','JetBrains Mono','IBM Plex Mono',ui-monospace,monospace;font-weight:600;font-size:clamp(1.4rem,4vw,2.1rem);
+    line-height:1.25;max-width:680px;margin:0 auto}
+  .philo .q b{color:var(--teal)}
+  .philo .sig{margin-top:22px;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-dim)}
+
+  footer{text-align:center;margin-top:60px;color:var(--ink-dim);font-size:.74rem;letter-spacing:.06em}
+  footer .frog{font-size:1.1rem}
+
+  /* ---------- ANIMATION ---------- */
+  .reveal{opacity:0;transform:translateY(20px);animation:up .7s forwards}
+  @keyframes up{to{opacity:1;transform:none}}
+  .d1{animation-delay:.05s}.d2{animation-delay:.12s}.d3{animation-delay:.2s}
+  .d4{animation-delay:.28s}.d5{animation-delay:.36s}.d6{animation-delay:.44s}
+
+  @media(max-width:760px){
+    .roles,.ledger,.stats{grid-template-columns:1fr}
+    .stats{grid-template-columns:1fr 1fr}
+    .somi{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HERO -->
+  <header class="hero">
+    <a class="brand reveal" href="https://somnia.network" target="_blank" rel="noopener">
+      <img src="./somnia-logo.png" alt="Somnia" onerror="this.style.display='none'">
+      <span>somnia</span>
+    </a>
+    <span class="kicker reveal">Somnia Agentic L1 · Community Reputation</span>
+    <h1 class="reveal d1">SOMNIA&nbsp;REP<span class="v">SYSTEM&nbsp;MAP</span></h1>
+    <p class="tag reveal d2">REP is an <b>identity signal</b>, not a currency. The number isn't something you spend — it's visible proof you've contributed consistently. The harder it is to earn, the more it means to hold.</p>
+  </header>
+
+  <!-- 1. WORKFLOW -->
+  <section class="sec">
+    <div class="sec-head reveal"><span class="sec-num">1</span><span class="sec-title">The Path to Guardian</span><span class="sec-line"></span></div>
+    <div class="flow">
+      <div class="step reveal d1"><span class="dot">01</span>
+        <h3>Newcomer</h3>
+        <p>Anyone in Discord. Can post to the contribution board, but earns <b>0 REP</b> until they're Guardian.</p>
+      </div>
+      <div class="arrow">▼</div>
+      <div class="step reveal d2"><span class="dot">02</span>
+        <h3>Build a portfolio</h3>
+        <p>Post in <b>#contribution-board</b>. Each thread that gets <b>4-mod ✅ consensus</b> counts toward your tally.</p>
+        <span class="pill-cap">Gate: 10 approved posts required</span>
+      </div>
+      <div class="arrow">▼</div>
+      <div class="step reveal d3"><span class="dot">03</span>
+        <h3>Apply for Guardian</h3>
+        <p>Submit the Apply quest with 2–3 highlights of your best work. <span class="gate">Locked until you clear the 10-post bar.</span></p>
+      </div>
+      <div class="arrow">▼</div>
+      <div class="step reveal d4"><span class="dot">04</span>
+        <h3>Application review</h3>
+        <p>A mod reads your application in FlipSuite and decides if it meets the bar. Passing review just clears the queue — <b>no REP, no role yet</b>. You're now waiting for an open Guardian slot.</p>
+        <span class="pill-cap">Queue depends on the 200-cap</span>
+      </div>
+      <div class="arrow">▼</div>
+      <div class="step reveal d5"><span class="dot">05</span>
+        <h3>Promotion to Guardian</h3>
+        <p>Once a slot is open — either naturally (a Guardian gets booted at 60d inactivity) or via manual review — a mod runs <code>/rep guardian @you</code>. <b>+1 REP and the role land together.</b></p>
+        <span class="pill-cap">Caps at 200 active Guardians</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. ROLES -->
+  <section class="sec">
+    <div class="sec-head reveal"><span class="sec-num">2</span><span class="sec-title">Roles</span><span class="sec-line"></span></div>
+    <div class="roles">
+      <div class="role new reveal d1">
+        <div class="rname">Newcomer</div>
+        <div class="rsub">no special role</div>
+        <ul>
+          <li>Read & chat in public channels</li>
+          <li>Post to the contribution board</li>
+          <li>Submit the Apply quest</li>
+          <li>Earns 0 REP · not on leaderboard</li>
+        </ul>
+      </div>
+      <div class="role guard reveal d2">
+        <div class="rname">Guardian</div>
+        <div class="rsub">the earned role · max 200</div>
+        <ul>
+          <li>The only role that can earn REP</li>
+          <li>Guardian-only channels + badge</li>
+          <li>Standing in monthly SOMI race</li>
+          <li>Can be lost via boot</li>
+        </ul>
+      </div>
+      <div class="role beta reveal d3">
+        <div class="rname">BETA</div>
+        <div class="rsub">permanent badge · 125 holders</div>
+        <ul>
+          <li>For pre-launch backfill recipients</li>
+          <li>"I was here first" signal</li>
+          <li>Exclusive perks over time — events, raffles, drops</li>
+          <li>Permanent — never revoked</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. EARN / LOSE -->
+  <section class="sec">
+    <div class="sec-head reveal"><span class="sec-num">3</span><span class="sec-title">REP In · REP Out</span><span class="sec-line"></span></div>
+    <div class="ledger">
+      <div class="col earn reveal d1">
+        <h3>↑ Earning</h3>
+        <div class="row"><div class="what">Contribution board<small>4-mod consensus · 1/week</small></div><span class="val pos">+3</span></div>
+        <div class="row"><div class="what">Exceptional bonus<small>mod /rep award, stacks on the +3</small></div><span class="val pos">+1–7</span></div>
+        <div class="row"><div class="what">@Somnia_Network engagement<small>per official X post · one-time</small></div><span class="val pos">+1</span></div>
+        <div class="row"><div class="what">Apply approval<small>once per user</small></div><span class="val pos">+1</span></div>
+      </div>
+      <div class="col lose reveal d2">
+        <h3>↓ Losing</h3>
+        <div class="row"><div class="what">Decay<small>per day, no grace · resets on any earn</small></div><span class="val neg">−0.5</span></div>
+        <div class="row"><div class="what">Penalty: spam<small>low-effort / repeated noise</small></div><span class="val neg">−3</span></div>
+        <div class="row"><div class="what">Penalty: misleading<small>false info that could harm</small></div><span class="val neg">−10</span></div>
+        <div class="row"><div class="what">Boot<small>60d no credit → role revoked too</small></div><span class="val neg">−50%</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. NUMBERS -->
+  <section class="sec">
+    <div class="sec-head reveal"><span class="sec-num">4</span><span class="sec-title">Locked Numbers</span><span class="sec-line"></span></div>
+    <div class="stats">
+      <div class="stat reveal d1"><div class="big">200</div><div class="lbl">Guardian cap</div></div>
+      <div class="stat reveal d2"><div class="big">400</div><div class="lbl">REP cap / user</div></div>
+      <div class="stat reveal d3"><div class="big">60d</div><div class="lbl">Boot threshold</div></div>
+      <div class="stat reveal d4"><div class="big">125</div><div class="lbl">BETA holders</div></div>
+    </div>
+  </section>
+
+  <!-- 5. SOMI -->
+  <section class="sec">
+    <div class="sec-head reveal"><span class="sec-num">5</span><span class="sec-title">Monthly SOMI Payout</span><span class="sec-line"></span></div>
+    <div class="somi reveal d1">
+      <div class="podium">
+        <div class="bar g2"><span class="place">2</span><span class="amt">350</span></div>
+        <div class="bar g1"><span class="place">1</span><span class="amt">500</span></div>
+        <div class="bar g3"><span class="place">3</span><span class="amt">250</span></div>
+      </div>
+      <div class="somi-txt">
+        <h3>Top 3 by 30-day earnings</h3>
+        <p>Ranked by REP <b>earned in the last 30 days</b> — not by total balance. A 50-REP newcomer with a hot month can beat a 400-REP veteran who went quiet.</p>
+        <p class="note">1-month winner cooldown: win this month, you sit out the next. Keeps the spotlight rotating.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY -->
+  <section class="sec">
+    <div class="philo reveal d1">
+      <div class="q">Earned, not given. <b>Active</b>, not historical.<br>The number itself is the prize — <b>SOMI is the cherry, not the cake.</b></div>
+      <div class="sig">— Somnia REP v2 · core principles</div>
+    </div>
+  </section>
+
+  <footer class="reveal d2">
+    <span class="frog">🐸</span> Built for the Somnia Guardian crew · gm anon
+  </footer>
+
+</div>
+</body>
+</html>
