@@ -212,6 +212,17 @@
   .ex h4{font-family:'Source Code Pro',ui-monospace,monospace;font-size:.98rem;font-weight:600;
     margin-bottom:6px;color:var(--ink)}
   .ex p{font-size:.82rem;color:var(--ink-dim);line-height:1.55}
+  /* View switch. v3 is the default; v2 stays because Guardians earned REP under
+     it and the rules they played by should remain readable. */
+  .viewswitch{display:inline-flex;gap:0;margin-top:26px;border:1px solid var(--panel-edge);border-radius:999px;padding:4px;background:var(--panel)}
+  .viewswitch button{font-family:'Source Code Pro',ui-monospace,monospace;font-size:.8rem;letter-spacing:.04em;padding:8px 18px;border:0;border-radius:999px;cursor:pointer;background:transparent;color:var(--ink-dim);transition:background .15s,color .15s}
+  .viewswitch button:hover{color:var(--ink)}
+  .viewswitch button.on{background:var(--accent);color:#fff}
+  .viewswitch button:focus-visible{outline:2px solid var(--accent-bright);outline-offset:2px}
+  .viewnote{margin-top:12px;font-size:.8rem;color:var(--ink-dim)}
+  .two-col{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+  .col p{font-size:.86rem;color:var(--ink-dim);line-height:1.65}
+  .col p b{color:#cccccc}
   .dq{margin-top:22px;text-align:center;font-size:.85rem;color:var(--ink-dim);
     padding:14px 20px;border:1px dashed var(--panel-edge);border-radius:10px}
   .dq b{color:#cccccc;font-weight:600}
@@ -305,8 +316,160 @@
     </a>
     <h1 class="reveal d1">Somnia&nbsp;REP<span class="v">system map</span></h1>
     <p class="tag reveal d2">REP is an <b>identity signal</b>, not a currency. The number isn't something you spend - it's visible proof you've contributed consistently. The harder it is to earn, the more it means to hold.</p>
+    <div class="viewswitch reveal d3" role="tablist" aria-label="Which system">
+      <button id="tab-current" role="tab" aria-selected="true"  aria-controls="view-current" class="on">v3 &middot; current</button>
+      <button id="tab-legacy"  role="tab" aria-selected="false" aria-controls="view-legacy">v2 &middot; legacy</button>
+    </div>
+    <p class="viewnote reveal d3" id="viewnote">Live from 1 September 2026. Posts on X, scored automatically.</p>
   </header>
 
+  <!-- ============ CURRENT: REP v3 ============ -->
+  <div id="view-current">
+
+  <div class="first-move reveal d3">
+    <div class="ic">&rarr;</div>
+    <div class="txt">
+      <b>Nothing to submit.</b> Post about Somnia on X and tag <code>@Somnia_Network</code>. We find it within four hours, score it, and it lands on your profile the same day.
+    </div>
+  </div>
+
+  <section class="sec">
+    <div class="sec-head reveal"><span class="sec-num">1</span><span class="sec-title">What makes a post count</span><span class="sec-line"></span></div>
+    <div class="examples">
+      <div class="ex reveal d1">
+        <span class="icon">🏷️</span>
+        <h4>Tag an official account</h4>
+        <p>The surest route, and the most used: 24,751 posts. Put <code>@Somnia_Network</code> in your text and nothing can go wrong.</p>
+      </div>
+      <div class="ex reveal d2">
+        <span class="icon">💬</span>
+        <h4>Quote one</h4>
+        <p>A quote tweet of an official account counts even with no words of your own.</p>
+      </div>
+      <div class="ex reveal d3">
+        <span class="icon">💲</span>
+        <h4>Use the $SOMI cashtag</h4>
+        <p>The cashtag is unambiguous, so it qualifies on its own.</p>
+      </div>
+      <div class="ex reveal d4">
+        <span class="icon">🧵</span>
+        <h4>Continue your own thread</h4>
+        <p>Reply to yourself under a post that already counts and the continuation counts too. Long form without paying for Premium.</p>
+      </div>
+    </div>
+    <div class="dq reveal d2">
+      Writing just the word &ldquo;somnia&rdquo; also counts, but <b>only after you have linked your account</b>, and only for posts from that day forward. The word appears in plenty of names that have nothing to do with us, so on its own it is weak evidence.
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-head reveal"><span class="sec-num">2</span><span class="sec-title">How a post is scored</span><span class="sec-line"></span></div>
+    <div class="two-col">
+      <div class="col earn">
+        <h3>Effort &nbsp;85%</h3>
+        <p>An AI model reads your post and rates it 0&ndash;100 on originality, product understanding and how well it is made. It never sees your name, your followers, or your likes. Just the words.</p>
+        <p style="margin-top:12px">A well-argued <b>critical</b> post scores high. Copy-pasted hype scores low, however positive.</p>
+      </div>
+      <div class="col">
+        <h3>Reach &nbsp;15%</h3>
+        <p>Likes, reposts, quotes, replies and bookmarks, weighted by how much each costs the person doing it.</p>
+        <p style="margin-top:12px">Used as your <b>rank against everyone else this cycle</b>, not a raw count, so one viral post cannot redefine the scale.</p>
+      </div>
+    </div>
+    <div class="cadence reveal d2">
+      <b>Why 85/15?</b> Twelve moderators compared 720 pairs of posts blind. This split agreed with them <b>83.5%</b> of the time. Ranking by engagement alone agreed <b>57%</b> of the time, barely better than a coin flip.
+      <small>That is the whole design in one number: what you wrote matters roughly five times more than how many people liked it.</small>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-head reveal"><span class="sec-num">3</span><span class="sec-title">Images, GIFs and video</span><span class="sec-line"></span></div>
+    <div class="cadence reveal d1">
+      <b>A picture can raise your score. It can never lower it.</b>
+      <small>Every image is rated on its own. If it beats your words, it lifts your effort rating by 30% of the difference. If it is worse, nothing happens. Attaching a meme to a good post costs you nothing.</small>
+    </div>
+    <div class="examples" style="margin-top:18px">
+      <div class="ex reveal d1"><span class="icon">🎨</span><h4>Original artwork &nbsp;75</h4><p>Something you made. The highest-rated category by a distance.</p></div>
+      <div class="ex reveal d2"><span class="icon">📊</span><h4>Charts, explainers &nbsp;62</h4><p>Informational graphics that teach somebody something.</p></div>
+      <div class="ex reveal d3"><span class="icon">🖼️</span><h4>Screenshots &nbsp;28</h4><p>Useful context, but not much work in the image itself.</p></div>
+      <div class="ex reveal d4"><span class="icon">😂</span><h4>Memes &nbsp;10</h4><p>Rated low, but they never drag your post down.</p></div>
+    </div>
+    <div class="dq reveal d2">
+      <b>Video and GIFs:</b> nothing watches the video. X gives us a single still frame and that frame is what gets rated, so a polished explainer and a still of its title card look the same to us. Not penalised, not yet properly rewarded either.
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-head reveal"><span class="sec-num">4</span><span class="sec-title">Replies, and how long a post grows</span><span class="sec-line"></span></div>
+    <div class="flow">
+      <div class="step reveal d1"><span class="dot">01</span>
+        <h3>A reply under someone else counts half</h3>
+        <p>They average 58 characters and an effort rating of 13. Without the discount a hundred of them would outweigh one real piece of writing.</p>
+      </div>
+      <div class="step reveal d2"><span class="dot">02</span>
+        <h3>A reply to yourself counts in full</h3>
+        <p>That is your own writing, and the only way to write at length without Premium.</p>
+      </div>
+      <div class="step reveal d3"><span class="dot">03</span>
+        <h3>Engagement is re-read for seven days</h3>
+        <p>Every two hours. A post that catches on the day after you wrote it is picked up and your score follows it. After seven days the numbers settle.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-head reveal"><span class="sec-num">5</span><span class="sec-title">From score to SOMI</span><span class="sec-line"></span></div>
+    <div class="flow">
+      <div class="step reveal d1"><span class="dot">01</span>
+        <h3>Your score, over 30 days</h3>
+        <p>The sum of every approved post in a rolling 30-day window.</p>
+      </div>
+      <div class="step reveal d2"><span class="dot">02</span>
+        <h3>Divided by 10, then a tier bonus</h3>
+        <p>Scout &times;1.0, Voice &times;1.2 from 50, Signal &times;1.5 from 150. Tiers key off your score, never your post count.</p>
+      </div>
+      <div class="step reveal d3"><span class="dot">03</span>
+        <h3>10 REP minimum to qualify</h3>
+        <p class="gate">Below the floor, no payout for that cycle.</p>
+      </div>
+      <div class="step reveal d4"><span class="dot">04</span>
+        <h3>10 SOMI per REP, capped at 3,000</h3>
+        <p>If everyone together earns more than the cap, every share is scaled down by the same proportion. Nobody is cut off at a line.</p>
+      </div>
+    </div>
+    <div class="dq reveal d2">
+      One Guardian posted <b>209 times</b> for a score of 198. Another posted <b>41 times</b> for 170. Nearly the same contribution, five times the volume. Posting more is not the cheat code.
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-head reveal"><span class="sec-num">6</span><span class="sec-title">What does not count</span><span class="sec-line"></span></div>
+    <div class="two-col">
+      <div class="col lose">
+        <h3>Ignored entirely</h3>
+        <p><b>Your follower count.</b> Not an input anywhere, and the model never sees it. The measured relationship between followers and score is +0.03. Between how much you post and your score it is +0.96.</p>
+        <p style="margin-top:12px"><b>Whether you were positive about us.</b> Sentiment is recorded to read the mood of the community. It is never subtracted from anyone.</p>
+      </div>
+      <div class="col">
+        <h3>Keeping the role</h3>
+        <p><b>REP no longer decays.</b> Nothing you earned is taken back for being quiet.</p>
+        <p style="margin-top:12px">The role still has to be held. Sixty days without a qualifying post, or sitting below the minimum, and it comes off. It does not come back on its own.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-head reveal"><span class="sec-num">7</span><span class="sec-title">Where a human comes in</span><span class="sec-line"></span></div>
+    <div class="cadence reveal d1">
+      <b>Almost everything is approved automatically.</b>
+      <small>Only the highest-value posts, roughly three a day across everyone, go in front of a moderator. That is not a judgement about you: a post worth a meaningful share of the pool deserves a second pair of eyes, and one worth almost nothing does not need one. Every post keeps the model's written reason for the rating it gave, so if you think yours was scored wrongly, say so.</small>
+    </div>
+  </section>
+
+  </div>
+
+  <!-- ============ LEGACY: the Discord-era system, kept for reference ============ -->
+  <div id="view-legacy" hidden>
   <!-- YOUR FIRST MOVE -->
   <div class="first-move reveal d3">
     <div class="ic">&rarr;</div>
@@ -648,6 +811,8 @@
     </div>
   </section>
 
+  </div>
+
   <div class="cta reveal d2">
     <a class="primary" href="https://discord.gg/somnia" target="_blank" rel="noopener">Join the Discord</a>
     <a class="ghost" href="https://somnia.network" target="_blank" rel="noopener">Somnia network</a>
@@ -661,5 +826,35 @@
   <div class="last-updated">Last updated: 2026-06-02</div>
 
 </div>
+<script>
+(function () {
+  // Deep-linkable, so a Discord message can point straight at the old rules.
+  var views = { current: document.getElementById('view-current'),
+                legacy:  document.getElementById('view-legacy') }
+  var tabs  = { current: document.getElementById('tab-current'),
+                legacy:  document.getElementById('tab-legacy') }
+  var note  = document.getElementById('viewnote')
+  var COPY  = {
+    current: 'Live from 1 September 2026. Posts on X, scored automatically.',
+    legacy:  'The Discord contribution board, retired 1 September 2026. Kept so the rules you earned under stay readable.'
+  }
+  function show (which) {
+    for (var k in views) {
+      views[k].hidden = k !== which
+      tabs[k].classList.toggle('on', k === which)
+      tabs[k].setAttribute('aria-selected', String(k === which))
+    }
+    note.textContent = COPY[which]
+    history.replaceState(null, '', which === 'legacy' ? '#legacy' : location.pathname)
+    // Re-run the entrance animation on whatever just became visible, or the
+    // second view arrives already faded out.
+    var els = views[which].querySelectorAll('.reveal')
+    for (var n = 0; n < els.length; n++) { els[n].classList.add('in') }
+  }
+  tabs.current.addEventListener('click', function () { show('current') })
+  tabs.legacy.addEventListener('click', function () { show('legacy') })
+  if (location.hash === '#legacy') { show('legacy') }
+})()
+</script>
 </body>
 </html>
