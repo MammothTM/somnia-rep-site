@@ -233,6 +233,26 @@
   .pool .amt span{font-size:1rem;color:var(--ink-dim);font-weight:400;margin-left:8px}
   .pool .txt{flex:1;min-width:240px;font-size:.88rem;color:var(--ink-dim);line-height:1.65}
   .pool .txt b{color:#cccccc}
+  /* A worked example beats any amount of describing the formula. Three cases
+     on purpose: one over the cap, one modest, one under the floor - the floor
+     is the part people hit and do not understand. */
+  .wex{margin-top:16px;background:var(--panel);border:1px solid var(--panel-edge);border-radius:14px;padding:22px 24px}
+  .wex h4{margin:0 0 16px;font-size:1rem;color:var(--ink)}
+  .wex-scroll{overflow-x:auto}
+  .wex-grid{display:grid;grid-template-columns:minmax(190px,1.6fr) repeat(3,minmax(78px,1fr));
+    gap:0;min-width:440px;font-size:.84rem}
+  .wex-grid>div{padding:9px 10px;border-bottom:1px solid var(--panel-edge)}
+  .wex-grid .h{font-family:'Source Code Pro',ui-monospace,monospace;color:var(--accent-bright);
+    font-size:.78rem;text-align:right;border-bottom:1px solid var(--panel-edge)}
+  .wex-grid .l{color:var(--ink-dim)}
+  .wex-grid .l i,.wex-grid .v i{font-style:normal;color:#6a6a6a;font-size:.76rem}
+  .wex-grid .v{text-align:right;font-family:'Source Code Pro',ui-monospace,monospace;color:#cccccc}
+  .wex-grid .yes{color:#4ade80}
+  .wex-grid .no{color:#f87171}
+  .wex-grid .big{border-bottom:none;padding-top:13px;font-size:1.05rem;color:var(--accent-bright);font-weight:700}
+  .wex-grid .l.big{color:var(--ink);font-weight:600;font-family:inherit;font-size:.9rem}
+  .wex p{margin:14px 0 0;font-size:.84rem;color:var(--ink-dim);line-height:1.7}
+  .wex p b{color:#cccccc}
   .two-col{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
   .col p{font-size:.86rem;color:var(--ink-dim);line-height:1.65}
   .col p b{color:#cccccc}
@@ -351,6 +371,35 @@
     <div class="txt">
       <b>The most REP pays out in a month.</b> You earn from your own score, so nobody else's posting shrinks what you get. If everyone together goes over 3,000, every payout drops by the same percentage.
     </div>
+  </div>
+
+  <div class="wex reveal d4">
+    <h4>Three Guardians, worked through</h4>
+    <div class="wex-scroll">
+      <div class="wex-grid">
+        <div class="h"></div><div class="h">Ana</div><div class="h">Ben</div><div class="h">Cem</div>
+
+        <div class="l">Score for the month</div>
+        <div class="v">300</div><div class="v">100</div><div class="v">30</div>
+
+        <div class="l">Tier it earns</div>
+        <div class="v">Signal <i>&times;1.5</i></div><div class="v">Voice <i>&times;1.2</i></div><div class="v">Scout <i>&times;1.0</i></div>
+
+        <div class="l">REP <i>score &divide; 10, then tier</i></div>
+        <div class="v">45</div><div class="v">12</div><div class="v">3</div>
+
+        <div class="l">Clears the 10 REP floor</div>
+        <div class="v yes">yes</div><div class="v yes">yes</div><div class="v no">no</div>
+
+        <div class="l">Earned <i>10 SOMI per REP</i></div>
+        <div class="v">450</div><div class="v">120</div><div class="v">0</div>
+
+        <div class="l big">Paid out</div>
+        <div class="v big">420</div><div class="v big">112</div><div class="v big">0</div>
+      </div>
+    </div>
+    <p><b>Why Cem gets nothing.</b> A score of 30 becomes 3 REP, and you need 10 REP to be paid at all. The floor keeps the month from being split a few coins at a time across everyone who posted once.</p>
+    <p><b>Why Ana is paid 420 and not 450.</b> This month the board earned 3,210 between everyone, which is over the 3,000 ceiling. So every payout is multiplied by the same 0.93. Ana keeps 420, Ben keeps 112. Ana still gets far more than Ben, because the scaling is the same percentage for both. It never reorders anyone.</p>
   </div>
 
   <section class="sec">
