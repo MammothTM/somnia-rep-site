@@ -205,6 +205,7 @@
 
   /* ---------- EXAMPLES ---------- */
   .examples{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .examples.pairs{grid-template-columns:repeat(2,1fr)}
   .ex{background:var(--panel);border:1px solid var(--panel-edge);border-radius:14px;
     padding:22px 20px;transition:transform .25s,border-color .25s}
   .ex:hover{transform:translateY(-3px);border-color:var(--accent)}
@@ -337,7 +338,7 @@
 
   <section class="sec">
     <div class="sec-head reveal"><span class="sec-num">1</span><span class="sec-title">What makes a post count</span><span class="sec-line"></span></div>
-    <div class="examples">
+    <div class="examples pairs">
       <div class="ex reveal d1">
         <span class="icon">🏷️</span>
         <h4>Tag an official account</h4>
@@ -391,7 +392,7 @@
       <b>A picture can raise your score. It can never lower it.</b>
       <small>Every image is rated on its own. If it beats your words, it lifts your effort rating by 30% of the difference. If it is worse, nothing happens. Attaching a meme to a good post costs you nothing.</small>
     </div>
-    <div class="examples" style="margin-top:18px">
+    <div class="examples pairs" style="margin-top:18px">
       <div class="ex reveal d1"><span class="icon">🎨</span><h4>Original artwork &nbsp;75</h4><p>Something you made. The highest-rated category by a distance.</p></div>
       <div class="ex reveal d2"><span class="icon">📊</span><h4>Charts, explainers &nbsp;62</h4><p>Informational graphics that teach somebody something.</p></div>
       <div class="ex reveal d3"><span class="icon">🖼️</span><h4>Screenshots &nbsp;28</h4><p>Useful context, but not much work in the image itself.</p></div>
