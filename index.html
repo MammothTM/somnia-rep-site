@@ -223,6 +223,16 @@
   .viewnote{margin-top:12px;font-size:.8rem;color:var(--ink-dim)}
   .accts{margin-top:10px;display:flex;flex-wrap:wrap;gap:6px}
   .accts code{font-size:.78rem}
+  /* The number people actually want, given its own block near the top rather
+     than left in step four of the payout chain. */
+  .pool{display:flex;gap:22px;align-items:center;flex-wrap:wrap;margin-top:18px;
+    background:var(--panel);border:1px solid var(--panel-edge);border-left:3px solid var(--accent);
+    border-radius:14px;padding:22px 24px}
+  .pool .amt{font-family:'Source Code Pro',ui-monospace,monospace;font-size:2.4rem;font-weight:700;
+    color:var(--accent-bright);line-height:1;white-space:nowrap}
+  .pool .amt span{font-size:1rem;color:var(--ink-dim);font-weight:400;margin-left:8px}
+  .pool .txt{flex:1;min-width:240px;font-size:.88rem;color:var(--ink-dim);line-height:1.65}
+  .pool .txt b{color:#cccccc}
   .two-col{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
   .col p{font-size:.86rem;color:var(--ink-dim);line-height:1.65}
   .col p b{color:#cccccc}
@@ -333,6 +343,13 @@
     <div class="ic">&rarr;</div>
     <div class="txt">
       <b>Nothing to submit.</b> Post about Somnia on X and tag any official account. We find it within four hours, score it, and it lands on your profile the same day.
+    </div>
+  </div>
+
+  <div class="pool reveal d3">
+    <div class="amt">3,000<span>SOMI</span></div>
+    <div class="txt">
+      <b>The most REP pays out in a month.</b> You earn from your own score, so nobody else's posting shrinks what you get. If everyone together goes over 3,000, every payout drops by the same percentage.
     </div>
   </div>
 
