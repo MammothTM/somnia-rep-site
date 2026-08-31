@@ -311,6 +311,10 @@
 
   /* ---------- META ---------- */
   .last-updated{text-align:center;margin-top:18px;color:var(--ink-dim);font-size:.74rem;opacity:.7}
+  /* Sits in the footer on every load because it is in the markup, not injected.
+     Legible rather than buried: the point is that somebody reads it. */
+  .disclaimer{margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,.07);
+    font-size:.76rem;color:var(--ink-dim);opacity:.85;line-height:1.5}
 
   footer{text-align:center;margin-top:60px;color:var(--ink-dim);font-size:.82rem;letter-spacing:.01em}
   footer a{color:var(--accent-bright);text-decoration:none;border-bottom:1px solid rgba(124,92,220,.4);
@@ -898,9 +902,10 @@
   <footer class="reveal d2">
     Questions or feedback? Drop them in <a href="https://discord.com/channels/1209923224620761088/1476946358538600600" target="_blank" rel="noopener"><b>#feedback-improvements</b></a><br>
     Built for the Somnia Guardian crew · gm anon
+    <div class="disclaimer">Community-built tool for Somnia Guardians. Not an official Somnia product.</div>
   </footer>
 
-  <div class="last-updated">Last updated: 2026-08-28</div>
+  <div class="last-updated">Last updated: 2026-08-31</div>
 
 </div>
 <script>
